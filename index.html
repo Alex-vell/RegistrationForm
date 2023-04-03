@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/assets/fonts/fonts.css">
+    <script defer rel="script" src="./src/js/index.js"></script>
+    <title>Registration form</title>
+</head>
+<body id="body" class="body">
+<form class="form" novalidate>
+    <h1 class="title">Регистрация</h1>
+    <div class="fieldGroup">
+        <div class="fieldWrap">
+            <label for="firstName" class="label">Имя:</label>
+            <input id="firstName" type="text" name="firstName" class="field" required minlength="2"
+                   maxlength="25">
+            <div id="invalidFirstName" class="invalid-feedback"></div>
+        </div>
+
+        <div class="fieldWrap">
+            <label for="lastName" class="label">Фамилия:</label>
+            <input id="lastName" type="text" name="lastName" class="field" required minlength="2"
+                   maxlength="25">
+            <div id="invalidLastName" class="invalid-feedback"></div>
+        </div>
+
+        <div class="fieldWrap">
+            <label for="birthDate" class="label">Дата рождения:</label>
+            <input id="birthDate" type="date" name="birthDate" class="field" required>
+            <div id="invalidBirthDate" class="invalid-feedback"></div>
+        </div>
+
+        <div class="fieldWrap">
+            <label for="email" class="label">Электронная почта:</label>
+            <input id="email" type="email" name="email" class="field" required>
+            <div id="invalidEmail" class="invalid-feedback"></div>
+        </div>
+
+        <div class="fieldWrap">
+            <label for="password" class="label">Пароль:</label>
+            <input id="password" type="password" name="password" class="field" required>
+            <div id="invalidPassword" class="invalid-feedback"></div>
+        </div>
+
+        <div class="fieldWrap">
+            <label for="confirmPassword" class="label">Подтверждение пароля:</label>
+            <input id="confirmPassword" type="password" name="confirmPassword" class="field"
+                   required>
+            <div id="invalidConfirmPassword" class="invalid-feedback"></div>
+        </div>
+
+        <div class="btnWrap">
+            <p id="successMessage" class="successMessage"></p>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
+
