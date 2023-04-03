@@ -44,7 +44,7 @@ const onBlurValidation = (
 }
 
 const onChangeValidation = (
-    field, invalidBlock, value, errorText, type, condition = undefined
+    field, invalidBlock, value, type, condition = undefined
 ) => {
     if (value.length === 0) {
         invalidBlock.innerText = "Это обязательное поле";
@@ -82,7 +82,6 @@ form.addEventListener('submit', async (event) => {
                 firstName,
                 invalidFirstName,
                 firstNameValue,
-                "Имя должно содержать от 2 до 25 символов",
                 "text",
                 firstNameValue.length < 2 || firstNameValue.length > 25,
             )
@@ -92,7 +91,6 @@ form.addEventListener('submit', async (event) => {
                 lastName,
                 invalidLastName,
                 lastNameValue,
-                "Фамилия должна содержать от 2 до 25 символов",
                 "text",
                 lastNameValue.length < 2 || lastNameValue.length > 25,
             )
@@ -104,7 +102,6 @@ form.addEventListener('submit', async (event) => {
                 birthdate,
                 invalidBirthData,
                 birthDateValue,
-                "Неправильно указана дата рождения",
                 "date",
                 selectedDate > currentDate,
             )
@@ -114,7 +111,6 @@ form.addEventListener('submit', async (event) => {
                 email,
                 invalidEmail,
                 emailValue,
-                "Невалидный адрес электронной почты",
                 "email",
             )
         }
@@ -123,7 +119,6 @@ form.addEventListener('submit', async (event) => {
                 password,
                 invalidPassword,
                 passwordValue,
-                "Пароль должен содержать минимум 8 символов, одну заглавную букву, одну цифру и один специальный символ из !@#$%",
                 "password",
                 passwordValue.length < 8 || !passwordRegex.test(passwordValue),
             )
@@ -135,7 +130,6 @@ form.addEventListener('submit', async (event) => {
                 confirmPassword,
                 invalidConfirmPassword,
                 confirmPasswordValue,
-                "Подтверждение пароля не совпадает с паролем",
                 "password",
                 passwordValue !== confirmPasswordValue,
             )
@@ -186,14 +180,12 @@ firstName.addEventListener('input', (e) => {
         firstName,
         invalidFirstName,
         e.currentTarget.value,
-        "Имя должно содержать от 2 до 25 символов",
         "text",
         e.currentTarget.value.length < 2 || e.currentTarget.value.length > 25,
     )
 });
 firstName.addEventListener('blur', (e) => {
     onBlurValidation(
-        // onChangeValidation(
         firstName,
         invalidFirstName,
         e.currentTarget.value,
@@ -209,7 +201,6 @@ lastName.addEventListener('input', (e) => {
         lastName,
         invalidLastName,
         e.currentTarget.value,
-        "Фамилия должна содержать от 2 до 25 символов",
         "text",
         e.currentTarget.value.length < 2 || e.currentTarget.value.length > 25,
     )
@@ -233,7 +224,6 @@ birthdate.addEventListener('input', (e) => {
         birthdate,
         invalidBirthData,
         e.currentTarget.value,
-        "Неправильно указана дата рождения",
         "date",
         selectedDate > currentDate,
     )
@@ -257,7 +247,6 @@ email.addEventListener('input', (e) => {
         email,
         invalidEmail,
         e.currentTarget.value,
-        "Невалидный адрес электронной почты",
         "email",
     )
 });
@@ -277,7 +266,6 @@ password.addEventListener('input', (e) => {
         password,
         invalidPassword,
         e.currentTarget.value,
-        "Пароль должен содержать минимум 8 символов, одну заглавную букву, одну цифру и один специальный символ из !@#$%",
         "password",
         e.currentTarget.value.length < 8 || !passwordRegex.test(e.currentTarget.value),
     )
@@ -301,7 +289,6 @@ confirmPassword.addEventListener('input', (e) => {
         confirmPassword,
         invalidConfirmPassword,
         e.currentTarget.value,
-        "Подтверждение пароля не совпадает с паролем",
         "password",
         passwordValue !== e.currentTarget.value,
     )
